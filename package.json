@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://professionalengineer23.github.io/shopping-react",
+  "homepage": "https://github.com/ProfessionalEngineer23/shopping-react",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "preview": "vite preview --host"
+    "preview": "vite build && vite preview --host"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
