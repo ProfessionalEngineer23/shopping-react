@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename={import.meta.env.DEV ? "/" : "/shopping-react/"}>
+      <BrowserRouter basename={import.meta.env.DEV ? "/" : "/shopping-react"}>
         <App />
       </BrowserRouter>
     </Provider>
