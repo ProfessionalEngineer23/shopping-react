@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/shoppingreact"> {/* Add Router wrapper here */}
+      <BrowserRouter basename="/shoppingreact/"> {/* Add Router wrapper here */}
         <App />
       </BrowserRouter>
     </Provider>
