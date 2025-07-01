@@ -14,7 +14,6 @@ function ProductList({ onHomeClick }) {
   const [addedToCart, setAddedToCart] = useState({});
   const [showBackToTop, setShowBackToTop] = useState(false);
 
-  // Track which items have been added
   useEffect(() => {
     const updated = {};
     cartItems.forEach((item) => {
@@ -23,7 +22,6 @@ function ProductList({ onHomeClick }) {
     setAddedToCart(updated);
   }, [cartItems]);
 
-  // Show/hide Back to Top button on scroll
   useEffect(() => {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 200);
@@ -118,8 +116,8 @@ function ProductList({ onHomeClick }) {
       {/* Product List or Cart View */}
       {!showCart ? (
         <div className="product-grid">
-          {componentsArray.map((category, index) => (
-            <div key={index}>
+          {componentsArray.map((category) => (
+            <div key={category.category}>
               <h1 id={category.category.replace(/\s+/g, '-')}>{category.category}</h1>
               <div className="product-list">
                 {category.components.map((product, idx) => (
@@ -150,15 +148,14 @@ function ProductList({ onHomeClick }) {
 
       {/* Back to Top Button */}
       {showBackToTop && (
-  <button
-    className="back-to-top show"
-    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-    aria-label="Back to top"
-  >
-    ↑
-  </button>
-)}
-
+        <button
+          className="back-to-top show"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Back to top"
+        >
+          ↑
+        </button>
+      )}
     </div>
   );
 }
