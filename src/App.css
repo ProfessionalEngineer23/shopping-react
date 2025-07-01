@@ -1,18 +1,19 @@
-/* LandingPage.css */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
+/* Base container */
 .landing-page {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f8f8f8;
 }
 
+/* Background Image */
 .background-image {
   position: absolute;
   top: 0;
@@ -20,128 +21,118 @@
   width: 100%;
   height: 100%;
   background-image: url('https://www.stockvault.net/data/2010/11/07/115807/thumb16.jpg');
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
   filter: brightness(0.8);
+  z-index: 0;
 }
+
+/* Overlay Content */
 .content {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 100vw;
- top: 100px;
+  padding: 2rem;
+  min-height: 100vh;
+  width: 100%;
   backdrop-filter: blur(4px);
-  background-color: rgba(0,0,0,0.5);
-  gap: 20px;
-}
-
-.landing_content {
- margin-top: 430px;
-  margin-left: 100px;
-  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
-  text-align: center;
-  /* background-color: red; */
-  width: 400px;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
 }
 
-.content p,
+/* Inner content box */
+.landing_content {
+  max-width: 500px;
+  width: 90%;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .content h1 {
   color: white;
-}
-
-.content h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
 }
 
 .content p {
-  font-size: 25px;
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1.4;
 }
 
 .divider {
   width: 50px;
   height: 2px;
   background-color: #4caf50;
-  margin: 10px 0;
+  margin: 0 auto;
 }
 
 .get-started-button {
-  padding: 15px 25px;
-  font-size: 23px;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
   border: none;
   border-radius: 5px;
   background-color: #4caf50;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 40px;
 }
 
 .get-started-button:hover {
   background-color: #45a049;
 }
 
-/* ProductList.css */
-
+/* Product list slide-up */
 .product-list-container {
   position: absolute;
-  overflow-x: hidden;
   top: 100vh;
-  /* Initially off-screen */
   left: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: rgba(255, 255, 255, 0.9);
-  /* Adjust background opacity as needed */
-  transition: top 0.5s ease;
-  /* Smooth transition for top property */
-  overflow-y: auto;
-  /* Enable vertical scrolling */
-  z-index: 2;
-  /* Ensure it's above landing page content */
   backdrop-filter: blur(5px);
+  transition: top 0.5s ease;
+  overflow-y: auto;
+  z-index: 2;
 }
 
 .product-list-container.visible {
   top: 0;
 }
-/* LandingPage.css */
+
+/* Tablets */
 @media screen and (max-width: 768px) {
   .content {
     flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+    padding: 1rem;
   }
-
   .landing_content {
-    margin-top: 100px; /* Adjust as needed */
-    margin-left: 0;
-    width: 80%; /* Adjust as needed */
-    text-align: center;
+    width: 95%;
+    padding: 1.5rem;
   }
-
-  .aboutus_container {
-    margin-top: 20px; /* Adjust as needed */
-    width: 80%; /* Adjust as needed */
+  .content h1 {
+    font-size: 2rem;
+  }
+  .content p {
+    font-size: 1rem;
   }
 }
 
+/* Phones */
 @media screen and (max-width: 480px) {
   .landing_content {
-    margin-top: 50px; /* Adjust as needed */
-    width: 90%; /* Adjust as needed */
+    width: 100%;
+    padding: 1rem;
   }
-
-  .aboutus_container {
-    width: 90%; /* Adjust as needed */
+  .content h1 {
+    font-size: 1.5rem;
+  }
+  .content p {
+    font-size: 0.95rem;
   }
 }
