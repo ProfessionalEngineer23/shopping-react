@@ -24,7 +24,7 @@ function ProductList({ onHomeClick }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 200);
+      setShowBackToTop(window.scrollY > 60);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -147,15 +147,13 @@ function ProductList({ onHomeClick }) {
       )}
 
       {/* Back to Top Button */}
-      {showBackToTop && (
-        <button
-          className="back-to-top show"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          aria-label="Back to top"
-        >
-          ↑
-        </button>
-      )}
+      <button
+        className={`back-to-top ${showBackToTop ? 'show' : ''}`}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+      >
+        ↑
+      </button>
     </div>
   );
 }
