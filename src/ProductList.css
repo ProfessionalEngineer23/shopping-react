@@ -1,10 +1,10 @@
-/* Reset some default styles */
+/* Reset default styles */
 body, h1, ul {
     margin: 0;
     padding: 0;
 }
 
-/* Set a background color */
+/* Body styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -13,7 +13,7 @@ body {
 /* Navbar */
 .navbar {
     background-color: #4CAF50;
-    color: #fff!important;
+    color: #fff !important;
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -21,12 +21,11 @@ body {
     font-size: 20px;
 }
 
-/* Navbar container */
-.navbar ul { /*This used to be .navbar .ul*/
+.navbar ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1100px; /*Used to be width: 1100*/
+    max-width: 1100px;
     width: 100%;
 }
 
@@ -48,7 +47,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-bottom: 3px solid #4CAF50;
     display: block;
-    margin: 100px auto 10px; /* Center horizontally */
+    margin: 100px auto 10px;
     padding-bottom: 5px;
 }
 
@@ -59,15 +58,14 @@ body {
     gap: 50px;
     padding: 20px;
     width: 100%;
-    align-items: center;
     justify-content: center;
     margin: 0 auto;
     max-width: 1200px;
 }
 
-/* Product Card */
+/* Product Card - Desktop default: 3 per row */
 .product-card {
-    flex: 0 0 calc(33.33% - 20px); /* 3 cards per row */
+    flex: 1 1 calc(33.33% - 20px);
     max-width: calc(33.33% - 20px);
     margin-bottom: 20px;
     padding: 20px;
@@ -76,30 +74,27 @@ body {
     border-radius: 5px;
     text-align: center;
     position: relative;
-    gap: 20px;
 }
 
-/* Pseudo-classes - Hover effect */
+/* Hover effect */
 .product-card:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
     z-index: 1;
 }
 
-/* Product Title */
+/* Product elements */
 .product-title {
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-/* Product Price */
 .product-price {
     color: #e74c3c;
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
-/* Product Image */
 .product-image {
     width: 100%;
     height: auto;
@@ -107,9 +102,8 @@ body {
     object-fit: contain;
 }
 
-/* Product Button */
 .product-button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -119,18 +113,16 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 
-/* Product Button Hover */
 .product-button:hover {
     background-color: #45a049;
 }
 
-/* Product Button - Added to cart */
 .product-button.added-to-cart {
-    background-color: grey; /* Grey when added */
+    background-color: grey;
     cursor: not-allowed;
 }
 
-/* Pseudo-element - Sale Badge */
+/* Sale Badge */
 .product-card::before {
     content: "SALE";
     background-color: #e74c3c;
@@ -201,7 +193,6 @@ body {
     font-size: 14px;
 }
 
-
 /* Plant headings */
 .plantname_heading {
     display: flex;
@@ -218,46 +209,20 @@ body {
     border-right: none;
 }
 
-/* Medium screens (tablets) */
-@media (max-width: 1200px) {
-    .product-card {
-        flex: 1 1 calc(33.33% - 20px);
-        max-width: calc(33.33% - 20px);
-    }
-}
+/* Responsive styles */
 
-/* Small screens (tablets & large phones) */
-@media (max-width: 768px) {
+/* Medium screens (tablets) - 2 cards per row */
+@media (max-width: 992px) {
     .product-card {
-        flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+        flex: 1 1 calc(50% - 20px);
         max-width: calc(50% - 20px);
     }
-
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .tag {
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .ul {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .ul div {
-        text-align: center;
-    }
 }
 
-/* Extra small screens (phones) */
-@media (max-width: 480px) {
+/* Small screens (phones) - 1 card per row */
+@media (max-width: 600px) {
     .product-card {
-        flex: 1 1 100%; /* 1 card per row */
+        flex: 1 1 100%;
         max-width: 100%;
     }
 
