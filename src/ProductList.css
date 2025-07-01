@@ -22,11 +22,11 @@ body {
 }
 
 /* Navbar container */
-.navbar ul {
+.navbar ul { /*This used to be .navbar .ul*/
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1100px;
+    max-width: 1100px; /*Used to be width: 1100*/
     width: 100%;
 }
 
@@ -48,7 +48,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-bottom: 3px solid #4CAF50;
     display: block;
-    margin: 100px auto 10px;
+    margin: 100px auto 10px; /* Center horizontally */
     padding-bottom: 5px;
 }
 
@@ -67,7 +67,7 @@ body {
 
 /* Product Card */
 .product-card {
-    flex: 0 0 calc(33.33% - 20px); /* Always 3 cards per row */
+    flex: 0 0 calc(33.33% - 20px); /* 3 cards per row */
     max-width: calc(33.33% - 20px);
     margin-bottom: 20px;
     padding: 20px;
@@ -109,7 +109,7 @@ body {
 
 /* Product Button */
 .product-button {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Green */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -126,7 +126,7 @@ body {
 
 /* Product Button - Added to cart */
 .product-button.added-to-cart {
-    background-color: grey;
+    background-color: grey; /* Grey when added */
     cursor: not-allowed;
 }
 
@@ -201,6 +201,7 @@ body {
     font-size: 14px;
 }
 
+
 /* Plant headings */
 .plantname_heading {
     display: flex;
@@ -219,25 +220,35 @@ body {
 
 /* Medium screens (tablets) */
 @media (max-width: 1200px) {
-    /* No change to product-card to keep 3 per row */
+    .product-card {
+        flex: 1 1 calc(33.33% - 20px);
+        max-width: calc(33.33% - 20px);
+    }
 }
 
 /* Small screens (tablets & large phones) */
 @media (max-width: 768px) {
-    /* Keep 3 per row - do not override product-card */
+    .product-card {
+        flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+        max-width: calc(50% - 20px);
+    }
+
     .navbar {
         flex-direction: column;
         align-items: center;
     }
+
     .tag {
         margin-bottom: 20px;
         text-align: center;
     }
+
     .ul {
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
+
     .ul div {
         text-align: center;
     }
@@ -245,19 +256,26 @@ body {
 
 /* Extra small screens (phones) */
 @media (max-width: 480px) {
-    /* Keep 3 per row - do not override product-card */
+    .product-card {
+        flex: 1 1 100%; /* 1 card per row */
+        max-width: 100%;
+    }
+
     .navbar {
         flex-direction: column;
         align-items: center;
     }
+
     .navbar .ul {
         flex-direction: column;
         gap: 10px;
         width: 100%;
     }
+
     .tag_home_link h3 {
         font-size: 24px;
     }
+
     .luxury {
         width: 100%;
         font-size: 17px;
