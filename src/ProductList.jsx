@@ -12,14 +12,25 @@ function ProductList({ onHomeClick }) {
 
   const [showCart, setShowCart] = useState(false);
   const [addedToCart, setAddedToCart] = useState({});
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
+  // Track which items have been added
   useEffect(() => {
     const updated = {};
-    cartItems.forEach(item => {
+    cartItems.forEach((item) => {
       updated[item.name] = true;
     });
     setAddedToCart(updated);
   }, [cartItems]);
+
+  // Show/hide Back to Top button on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 200);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleAddToCart = (product) => {
     dispatch(addItem(product));
@@ -72,10 +83,12 @@ function ProductList({ onHomeClick }) {
         </ul>
 
         <div className="cart-container">
-          <a href="#" onClick={handleCartClick} className="cart-icon">
+          <a href="#" onClick={handleCartClick} className="cart-icon" aria-label="View Cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 256 256"
+              width="48"
+              height="48"
             >
               <circle cx="80" cy="216" r="12" fill="black" />
               <circle cx="184" cy="216" r="12" fill="black" />
@@ -133,6 +146,16 @@ function ProductList({ onHomeClick }) {
         </div>
       ) : (
         <CartItem onContinueShopping={handleContinueShopping} />
+      )}
+
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          className="back-to-top"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          ↑
+        </button>
       )}
     </div>
   );
