@@ -55,7 +55,6 @@ function ProductList({ onHomeClick }) {
 
   return (
     <div>
-      {/* Top Navbar */}
       <div className="navbar">
         <div className="tag">
           <img
@@ -113,7 +112,6 @@ function ProductList({ onHomeClick }) {
         </div>
       </div>
 
-      {/* Product List or Cart View */}
       {!showCart ? (
         <div className="product-grid">
           {componentsArray.map((category) => (
@@ -146,7 +144,6 @@ function ProductList({ onHomeClick }) {
         <CartItem onContinueShopping={handleContinueShopping} />
       )}
 
-      {/* Back to Top Button */}
       <button
         className={`back-to-top ${showBackToTop ? 'show' : ''}`}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

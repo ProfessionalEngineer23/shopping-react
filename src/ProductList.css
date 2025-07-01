@@ -22,6 +22,9 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 /* Logo/tag container */
@@ -102,14 +105,12 @@ body {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Hover effect */
 .product-card:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
-/* Product elements */
 .product-title {
   font-weight: bold;
   margin-bottom: 10px;
@@ -195,13 +196,11 @@ body {
   transition: opacity 0.3s ease;
 }
 
-/* Show when scrolled */
 .back-to-top.show {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Hover effect */
 .back-to-top:hover {
   background-color: #45a049;
   transform: scale(1.1);
